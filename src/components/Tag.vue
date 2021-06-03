@@ -3,6 +3,7 @@
         <v-btn
             height="25"
             width="auto"
+            class="tag"
         >
             <small><v-icon size=10>mdi-tag</v-icon> {{ tag }}</small>
         </v-btn>
@@ -15,3 +16,7 @@ export default {
   props: ['tag'],
 }
 </script>
+
+<style scoped>
+
+</style>

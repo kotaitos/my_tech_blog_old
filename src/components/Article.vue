@@ -29,10 +29,10 @@
 
       <v-row
         class="flex-row flex-nowrap overflow-auto"
-        dense
       >
         <v-col
-        v-for="tag in article.tags" :key="tag"
+          v-for="tag in article.tags" :key="tag"
+          dense
         >
           <Tag v-bind:tag="tag" />
         </v-col>
@@ -70,4 +70,5 @@ export default {
 .article {
   margin: 10px!important;
 }
+
 </style>

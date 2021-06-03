@@ -4,7 +4,7 @@
     <v-card
     flat
     >
-      <v-img height="400" :src="article.image.url"></v-img>
+      <v-img :src="article.image.url"></v-img>
 
       <v-card-title>{{ article.title }}</v-card-title>
 
@@ -15,21 +15,23 @@
       </v-card-text>
 
       <v-card-text class="text--primary">
-        <v-card-text>
-          <v-icon>mdi-tag</v-icon>タグ
-        </v-card-text>
+        <v-icon>mdi-tag</v-icon>タグ
+      </v-card-text>
+
+      <v-card-text class="text--primary">
         <v-row
-          class=""
+          class="tags"
           dense
         >
           <v-col
             v-for="tag in article.tags" :key="tag"
-            class="mx-1"
+            class="mx-1 tag pe-5"
           >
-          <Tag v-bind:tag="tag" />
+            <Tag v-bind:tag="tag" />
           </v-col>
         </v-row>
       </v-card-text>
+      
       <v-card-text>
         <router-link :to="{ name: 'home' }">
           <v-btn>
@@ -72,7 +74,6 @@ export default {
 
   computed: {
     sanitizedBody() {
-      console.log(this.article.body);
       return sanitizeHtml(this.article.body, {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"])
       });
@@ -88,7 +89,6 @@ export default {
           }
       }
     );
-    console.log(response)
     this.article = response.data;
   }
 };
@@ -122,6 +122,11 @@ code {
   font-size: 14px!important;
   color: white!important;
   background-color: #44474b!important;
+}
+
+.tags {
+  margin-left: 10px!important;
+  padding-right: 760px!important;
 }
 </style>
 
