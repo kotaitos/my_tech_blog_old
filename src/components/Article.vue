@@ -1,8 +1,8 @@
 <template>
   <v-card 
-    class="mx-auto"
+    class="mx-auto article"
     max-width="300"
-    max-height="800"
+    max-height="600"
   >
     <router-link
       :to="{ name: 'article-detail', params: { id: article.id } }"
@@ -17,7 +17,7 @@
     
 
     <v-card-text class="text--primary blue-grey lighten-5">
-      <v-card-title class="font-weight-black">
+      <v-card-title class="article_title font-weight-black">
         {{ article.title }}
       </v-card-title>
 
@@ -61,3 +61,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.article_title {
+  font-size: 18px!important;
+}
+
+.article {
+  margin: 10px!important;
+}
+</style>
