@@ -103,7 +103,7 @@ p {
   color: rgb(32, 32, 32)!important;
 }
 
-h3 {
+h1 {
   padding: 1rem 2rem;
   border-left: 4px solid #000;
   color: black;
