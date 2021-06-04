@@ -40,6 +40,7 @@ export default {
 
   data: () => ({
     articles: [],
+    tag: '',
   }),
   
   async mounted() {
@@ -58,7 +59,8 @@ export default {
         }
     }
     document.title = `タグ「${this.$route.params.tag}」がついた記事一覧  | コタロウの開発日記`;
-    document.querySelector("meta[name='description']").setAttribute('content', `コタロウの技術ブログでタグ「${this.$route.params.tag}」がついた記事の一覧です。`)
+    this.setDescription(`コタロウの技術ブログでタグ「${this.$route.params.tag}」がついた記事の一覧です。`)
+    this.tag = this.$route.params.tag;
   },
 
   methods: {
@@ -66,6 +68,17 @@ export default {
       this.$router.push({ name: 'tagged-articles', params: { tag: tag } })
       this.$router.go({ path: this.$router.currentRoute.path })
     },
+    setDescription: function (description) {
+      let metaDiscre = document.head.children;
+      let metaLength = metaDiscre.length;
+      for(var i = 0; i < metaLength; i++){
+        let proper = metaDiscre[i].getAttribute('name');
+        if(proper === 'description'){
+          let dis = metaDiscre[i];
+          dis.setAttribute('content', description);
+        }
+      }
+    }
   },
 
   computed: {

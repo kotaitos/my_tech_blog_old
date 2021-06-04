@@ -86,11 +86,21 @@ export default {
     );
     this.articles = response.data.contents;
     document.title = this.document.title;
-		document.querySelector("meta[property='description']").setAttribute('content', this.document.description);
+    this.setDescription(this.document.description);
   },
 
   methods: {
-
+    setDescription: function (description) {
+      let metaDiscre = document.head.children;
+      let metaLength = metaDiscre.length;
+      for(var i = 0; i < metaLength; i++){
+        let proper = metaDiscre[i].getAttribute('name');
+        if(proper === 'description'){
+          let dis = metaDiscre[i];
+          dis.setAttribute('content', description);
+        }
+      }
+    }
   },
 
   computed: {

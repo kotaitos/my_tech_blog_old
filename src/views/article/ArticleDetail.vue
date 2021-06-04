@@ -91,7 +91,21 @@ export default {
     );
     this.article = response.data;
     document.title = `${this.article.title} | コタロウの開発日記`;
-		document.querySelector("meta[property='description']").setAttribute('content', `${this.article.summary} | コタロウの開発日記`)
+    this.setDescription(`${this.article.summary} | コタロウの開発日記`);
+  },
+
+  methods: {
+    setDescription: function (description) {
+      let metaDiscre = document.head.children;
+      let metaLength = metaDiscre.length;
+      for(var i = 0; i < metaLength; i++){
+        let proper = metaDiscre[i].getAttribute('name');
+        if(proper === 'description'){
+          let dis = metaDiscre[i];
+          dis.setAttribute('content', description);
+        }
+      }
+    }
   }
 };
 </script>
