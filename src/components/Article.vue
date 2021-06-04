@@ -17,13 +17,16 @@
     
 
     <v-card-text class="text--primary blue-grey lighten-5">
+      <small class="font-weight-medium">{{ article.updatedAt.slice(0, article.updatedAt.indexOf("T")) }}</small>
       <v-card-title class="article_title font-weight-black">
         {{ article.title }}
       </v-card-title>
 
       <v-divider class="mx-4"></v-divider>
 
-      <div class="summary">{{ article.summary }}</div>
+      <div class="summary">
+        {{ article.summary }}
+      </div>
 
       <v-divider class="mx-4"></v-divider>
 
