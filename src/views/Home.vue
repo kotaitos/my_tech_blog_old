@@ -68,11 +68,14 @@ export default {
       '画像処理・画像認識',
       '自然言語処理',
       '音声処理・音声認識',
-    ]
+    ],
+    document: {
+      title: 'コタロウの開発日記',
+      description: 'こんにちは！コタロウです。福岡のIT企業ででエンジニアをやっています。業務や個人開発で触れた技術を幅広く紹介します。'
+    }
   }),
   
   async mounted() {
-    // 記事を取得する
     const response = await axios.get(
       `${process.env.VUE_APP_API_BASE_URL}articles/`,
       {
@@ -82,6 +85,8 @@ export default {
       }
     );
     this.articles = response.data.contents;
+    document.title = this.document.title;
+		document.querySelector("meta[property='description']").setAttribute('content', this.document.description)
   },
 
   methods: {

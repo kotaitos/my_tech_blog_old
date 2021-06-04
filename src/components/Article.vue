@@ -1,7 +1,7 @@
 <template>
   <v-card 
     class="mx-auto article"
-    max-width="300"
+    max-width="400"
     max-height="600"
   >
     <router-link

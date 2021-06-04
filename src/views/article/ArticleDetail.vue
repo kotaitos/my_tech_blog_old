@@ -90,6 +90,8 @@ export default {
       }
     );
     this.article = response.data;
+    document.title = this.article.title;
+		document.querySelector("meta[property='description']").setAttribute('content', this.article.summary)
   }
 };
 </script>
