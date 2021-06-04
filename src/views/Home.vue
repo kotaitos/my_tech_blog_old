@@ -71,7 +71,7 @@ export default {
     ],
     document: {
       title: 'ホーム | コタロウの開発日記',
-      description: 'こんにちは！コタロウです。福岡のIT企業ででエンジニアをやっています。業務や個人開発で触れた技術を幅広く紹介します。'
+      description: 'こんにちは！コタロウです。福岡のIT企業でエンジニアをやっています。業務や個人開発で触れた技術を幅広く紹介します。'
     }
   }),
   
@@ -86,7 +86,7 @@ export default {
     );
     this.articles = response.data.contents;
     document.title = this.document.title;
-		document.querySelector("meta[property='description']").setAttribute('content', this.document.description)
+		document.querySelector("meta[property='description']").setAttribute('content', this.document.description);
   },
 
   methods: {

@@ -20,13 +20,13 @@ const router = new Router({
       path: "/article/:id/",
       name: "article-detail",
       component: ArticleDetail,
-      meta: { title: this.article.title, description: this.article.summary }
+      meta: { title: '記事詳細', description: '記事の詳細' }
     },
     {
       path: "/tagged/:tag/",
       name: "tagged-articles",
       component: TaggedArticles,
-      meta: { title: `タグ「${this.$route.params.tag}」がついた記事一覧`, description: `コタロウの技術ブログでタグ「${this.$route.params.tag}」がついた記事の一覧です。` }
+      meta: { title: 'タグがついた記事一覧', description: 'コタロウの技術ブログでタグがついた記事の一覧です。' }
     },
   ]
 })
