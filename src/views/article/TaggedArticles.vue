@@ -43,7 +43,6 @@ export default {
   }),
   
   async mounted() {
-    // 記事を取得する
     const response = await axios.get(
       `${process.env.VUE_APP_API_BASE_URL}articles/`,
       {
@@ -64,6 +63,20 @@ export default {
     reload: function (tag) {
       this.$router.push({ name: 'tagged-articles', params: { tag: tag } })
       this.$router.go({ path: this.$router.currentRoute.path })
+    },
+    createTitleDesc : function (routeInstance) {
+      if(routeInstance.meta.title){
+        let setTitle = `タグ「${this.$route.params.tag}」がついた記事一覧  | コタロウの開発日記`;
+        document.title = setTitle;
+      } else {
+        document.title = 'title is not set'
+      }
+      if(routeInstance.meta.desc){
+        var setDesc = `コタロウの技術ブログでタグ「${this.$route.params.tag}」がついた記事の一覧です。`;
+        document.querySelector("meta[name='description']").setAttribute('content', setDesc)
+      } else {
+        document.querySelector("meta[name='description']").setAttribute('content', 'description is not set')
+      }
     }
   },
 
