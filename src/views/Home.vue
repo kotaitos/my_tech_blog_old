@@ -72,7 +72,7 @@ export default {
     ],
     document: {
       title: 'ホーム | コタロウの開発日記',
-      description: 'こんにちは！コタロウです。私が触れた技術を幅広く紹介します。'
+      description: 'こんにちは！コタロウです。私が触れた技術を紹介します。'
     }
   }),
   
