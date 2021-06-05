@@ -144,5 +144,10 @@ code {
   margin-left: 10px!important;
   padding-right: 760px!important;
 }
+
+img {
+  height: auto!important;
+  max-width: 600px!important;
+}
 </style>
 
