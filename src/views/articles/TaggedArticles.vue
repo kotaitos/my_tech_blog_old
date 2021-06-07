@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import HomeButton from '@/components/HomeButton';
 import Article from '@/components/Article'
 
@@ -44,14 +43,7 @@ export default {
   }),
   
   async mounted() {
-    const response = await axios.get(
-      `${process.env.VUE_APP_API_BASE_URL}articles/`,
-      {
-        headers: {
-          "X-API-KEY": process.env.VUE_APP_X_API_KEY,
-        },
-      }
-    );
+    const response = await this.$request.api.getArticles();
     let articles = response.data.contents
     for(let i = 0; i < articles.length; i++) {
         if(articles[i].tags.includes(this.$route.params.tag)) {

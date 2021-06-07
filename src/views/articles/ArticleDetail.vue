@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import sanitizeHtml from "sanitize-html";
 import HomeButton from '@/components/HomeButton'
 import Tag from '@/components/Tag'
@@ -78,14 +77,7 @@ export default {
   },
 
   mounted: async function () {
-    const response = await axios.get(
-      `${process.env.VUE_APP_API_BASE_URL}articles/${this.$route.params.id}`,
-      {
-        headers: {
-          "X-API-KEY": process.env.VUE_APP_X_API_KEY
-          }
-      }
-    );
+    const response = await this.$request.api.getArticleDetail(this.$route.params.id);
     this.article = response.data;
     document.title = `${this.article.title} | ${document.title}`;
     this.setMetaData(this.article);

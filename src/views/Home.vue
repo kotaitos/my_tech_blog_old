@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import MyAvatar from '@/components/MyAvatar'
 import Article from '@/components/Article'
 import Introduction from '@/components/Introduction'
@@ -88,14 +87,7 @@ export default {
   }),
   
   async mounted() {
-    const response = await axios.get(
-      `${process.env.VUE_APP_API_BASE_URL}articles/`,
-      {
-        headers: {
-          "X-API-KEY": process.env.VUE_APP_X_API_KEY,
-        },
-      }
-    );
+    const response = await this.$request.api.getArticles();
     this.articles = response.data.contents;
     document.title = this.document.title;
     this.setMetaData(this.document.description, this.introduction);

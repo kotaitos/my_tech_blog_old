@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
-import ArticleDetail from '@/views/article/ArticleDetail'
-import TaggedArticles from '@/views/article/TaggedArticles'
+import ArticleDetail from '@/views/articles/ArticleDetail'
+import TaggedArticles from '@/views/articles/TaggedArticles'
 
 
 Vue.use(Router)
@@ -17,7 +17,7 @@ const router = new Router({
       meta: { title: 'ホーム', description: 'こんにちは！コタロウです。福岡のIT企業ででエンジニアをやっています。業務や個人開発で触れた技術を幅広く紹介します。' }
     },
     {
-      path: "/article/:id/",
+      path: "/articles/:id/",
       name: "article-detail",
       component: ArticleDetail,
       meta: { title: '記事詳細', description: '記事の詳細' }
