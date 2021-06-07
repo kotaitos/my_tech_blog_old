@@ -82,7 +82,7 @@ export default {
     ],
     introduction: 'IT・プログラミングに関する記事を投稿しています！',
     document: {
-      title: 'こつこつプログラミング',
+      title: 'にしきへびブログ',
       description: 'IT・プログラミングに関する記事を投稿しています！'
     },
   }),
