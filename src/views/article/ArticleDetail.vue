@@ -69,7 +69,7 @@ export default {
   },
 
   data: () => ({
-    article: {}
+    article: {},
   }),
 
   computed: {
@@ -91,21 +91,46 @@ export default {
     );
     this.article = response.data;
     document.title = `${this.article.title} | コタロウの開発日記`;
-    this.setDescription(`${this.article.summary} | コタロウの開発日記`);
+    this.setMetaData(this.article);
   },
 
   methods: {
-    setDescription: function (description) {
+    setMetaData: function (article) {
       let metaDiscre = document.head.children;
       let metaLength = metaDiscre.length;
       for(var i = 0; i < metaLength; i++){
         let proper = metaDiscre[i].getAttribute('name');
         if(proper === 'description'){
           let dis = metaDiscre[i];
-          dis.setAttribute('content', description);
+          dis.setAttribute('content', article.summary);
         }
       }
+      // OGP
+      document.querySelector("meta[property='og:title']").setAttribute('content', article.title);
+      document.querySelector("meta[property='og:url']").setAttribute('content', this.$route.path);
+      document.querySelector("meta[property='og:description']").setAttribute('content', article.summary);
+      document.querySelector("meta[property='og:image']").setAttribute('content', article.image.url);
+
+      // twiiter meta 
+      document.querySelector("meta[name='twitter:site']").setAttribute('content', this.$route.path);
+      document.querySelector("meta[name='twitter:card']").setAttribute('content', 'summary_large_image');
+      document.querySelector("meta[name='twitter:title']").setAttribute('content', article.title);
+      document.querySelector("meta[name='twitter:image']").setAttribute('content', article.image.url);
+      document.querySelector("meta[name='twitter:description']").setAttribute('content', article.summary);
     }
+  },
+
+  metaInfo: {
+    meta: [
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:site_name',
+        content: 'コタロウの開発日記',
+      },
+    ]
   }
 };
 </script>
