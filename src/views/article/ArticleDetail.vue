@@ -107,31 +107,20 @@ export default {
       }
       // OGP
       document.querySelector("meta[property='og:title']").setAttribute('content', article.title);
-      document.querySelector("meta[property='og:url']").setAttribute('content', this.$route.path);
       document.querySelector("meta[property='og:description']").setAttribute('content', article.summary);
       document.querySelector("meta[property='og:image']").setAttribute('content', article.image.url);
+      document.querySelector("meta[property='og:url']").setAttribute('content', `https://kotaro.blog${this.$route.path}`);
 
-      // twiiter meta 
-      document.querySelector("meta[name='twitter:site']").setAttribute('content', this.$route.path);
+      // // twiiter meta 
+      console.log(document)
+      document.querySelector("meta[name='twitter:site']").setAttribute('content', `https:/kotaro.blog${this.$route.path}`);
       document.querySelector("meta[name='twitter:card']").setAttribute('content', 'summary_large_image');
       document.querySelector("meta[name='twitter:title']").setAttribute('content', article.title);
       document.querySelector("meta[name='twitter:image']").setAttribute('content', article.image.url);
       document.querySelector("meta[name='twitter:description']").setAttribute('content', article.summary);
+      console.log(document)
     }
   },
-
-  metaInfo: {
-    meta: [
-      {
-        property: 'og:type',
-        content: 'website',
-      },
-      {
-        property: 'og:site_name',
-        content: 'コタロウの開発日記',
-      },
-    ]
-  }
 };
 </script>
 
