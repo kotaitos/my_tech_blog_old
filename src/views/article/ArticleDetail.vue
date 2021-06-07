@@ -87,7 +87,7 @@ export default {
       }
     );
     this.article = response.data;
-    document.title = `${this.article.title} | コタロウの開発日記`;
+    document.title = `${this.article.title} | ${document.title}`;
     this.setMetaData(this.article);
   },
 
