@@ -115,7 +115,11 @@ export default {
   font-size: 30px;
 }
 
-p li {
+p {
+  color: rgb(32, 32, 32)!important;
+}
+
+li {
   color: rgb(32, 32, 32)!important;
 }
 

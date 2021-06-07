@@ -1,7 +1,7 @@
 <template>
     <div class="text-center">
         <div class="introduction">
-                <v-card-text>自身の開発記録を投稿しています！<br>SNSのフォローもよろしくお願いいたします！</v-card-text>
+                <v-card-text>{{ introduction }}<br>SNSのフォローもよろしくお願いいたします！</v-card-text>
             </div>
             <div class="sns_icons">
                 <v-btn
@@ -25,6 +25,8 @@
 <script>
 export default {
   name: "Introduction",
+
+  props: ['introduction'],
 
   data: () => ({
     icons: [

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <MyAvatar/>
-    <Introduction/>
+    <Introduction v-bind:introduction="introduction" />
 
     <v-divider class="mx-4"></v-divider>
 
@@ -70,10 +70,11 @@ export default {
       '音声処理・音声認識',
       'GAS'
     ],
+    introduction: 'IT・プログラミングに関するアウトプットを記事にして投稿しています！',
     document: {
       title: 'ホーム | コタロウの開発日記',
-      description: 'こんにちは！コタロウです。私が触れた技術を紹介します。'
-    }
+      description: 'こんにちは！コタロウです。'
+    },
   }),
   
   async mounted() {
@@ -87,7 +88,7 @@ export default {
     );
     this.articles = response.data.contents;
     document.title = this.document.title;
-    this.setDescription(this.document.description);
+    this.setDescription(this.document.description+this.introduction);
   },
 
   methods: {
