@@ -1,7 +1,7 @@
 <template>
     <div class="text-center">
         <div class="introduction">
-                <v-card-text>{{ introduction }}<br>SNSのフォローもよろしくお願いいたします！</v-card-text>
+                <v-card-text>{{ introduction }}</v-card-text>
             </div>
             <div class="sns_icons">
                 <v-btn

@@ -1,21 +1,11 @@
 <template>
     <div class="text-center">
-        <div class="avatar">
-            <v-avatar
-            color="primary"
-            size="86"
-            >
-            <v-img :src="icon_image_url"></v-img>
-            </v-avatar>
-        </div>
-
-        <v-card-text
-        class="center font-weight-black"
-        >
-        コタロウの開発日記
-        </v-card-text>
-
-        <v-divider class="mx-4"></v-divider>
+      <v-avatar
+        color="primary"
+        size="86"
+      >
+        <v-img :src="icon_image_url"></v-img>
+      </v-avatar>
     </div>
 </template>
 

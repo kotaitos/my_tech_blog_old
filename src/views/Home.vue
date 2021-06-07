@@ -1,6 +1,15 @@
 <template>
   <v-container>
-    <MyAvatar/>
+    <div class="text-center">
+      <v-card-text
+        class="center font-weight-black"
+      >
+        <h1>{{ document.title }}</h1>
+      </v-card-text>
+    </div>
+
+    <v-divider class="mx-4"></v-divider>
+
     <Introduction v-bind:introduction="introduction" />
 
     <v-divider class="mx-4"></v-divider>
@@ -30,6 +39,7 @@
         <Article v-bind:article="article" />
       </v-col>
     </v-row>
+    <MyAvatar/>
   </v-container>
 </template>
 
@@ -70,10 +80,10 @@ export default {
       '音声処理・音声認識',
       'GAS'
     ],
-    introduction: 'IT・プログラミングに関するアウトプットを記事にして投稿しています！',
+    introduction: 'IT・プログラミングに関する記事を投稿しています！',
     document: {
-      title: 'ホーム | コタロウの開発日記',
-      description: 'こんにちは！コタロウです。'
+      title: 'こつこつプログラミング',
+      description: 'IT・プログラミングに関する記事を投稿しています！'
     },
   }),
   
@@ -103,7 +113,7 @@ export default {
         }
       }
       // OGP
-      document.querySelector("meta[property='og:title']").setAttribute('content', 'コタロウの開発日記');
+      document.querySelector("meta[property='og:title']").setAttribute('content', document.title);
       document.querySelector("meta[property='og:description']").setAttribute('content', introduction);
       document.querySelector("meta[property='og:image']").setAttribute('content', 'https://images.microcms-assets.io/assets/869c668f8ba9442a8a5f97b75fb04858/1a821da37354495c9b16fdf6fb264caf/aikon_512.jpg');
       document.querySelector("meta[property='og:url']").setAttribute('content', 'https://kotaro.blog');
@@ -111,7 +121,7 @@ export default {
       // // twiiter meta 
       document.querySelector("meta[name='twitter:site']").setAttribute('content', 'https:/kotaro.blog');
       document.querySelector("meta[name='twitter:card']").setAttribute('content', 'summary_large_image');
-      document.querySelector("meta[name='twitter:title']").setAttribute('content', 'コタロウの開発日記');
+      document.querySelector("meta[name='twitter:title']").setAttribute('content', document.title);
       document.querySelector("meta[name='twitter:image']").setAttribute('content', 'https://images.microcms-assets.io/assets/869c668f8ba9442a8a5f97b75fb04858/1a821da37354495c9b16fdf6fb264caf/aikon_512.jpg');
       document.querySelector("meta[name='twitter:description']").setAttribute('content', introduction);
     }
@@ -126,5 +136,14 @@ export default {
 <style scoped>
 .summary {
   white-space: pre-wrap;
+}
+
+h1 {
+  padding: 1rem 2rem;
+  border-left: 4px solid #000;
+  border-right: 4px solid #000;
+  color: black;
+  font-size: 25px!important;
+  margin-top: 50px!important;
 }
 </style>

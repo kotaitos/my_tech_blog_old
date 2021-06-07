@@ -75,21 +75,21 @@ export default {
         let proper = metaDiscre[i].getAttribute('name');
         if(proper === 'description'){
           let dis = metaDiscre[i];
-          dis.setAttribute('content', `コタロウの技術ブログでタグ「${tag}」がついた記事の一覧です。`);
+          dis.setAttribute('content', `${document.title}でタグ「${tag}」がついた記事の一覧です。`);
         }
       }
       // OGP
-      document.querySelector("meta[property='og:title']").setAttribute('content', `コタロウの開発日記 | ${tag}に関する記事`);
-      document.querySelector("meta[property='og:description']").setAttribute('content', `コタロウの開発日記 | ${tag}に関する記事`);
+      document.querySelector("meta[property='og:title']").setAttribute('content', `${document.title} | ${tag}に関する記事`);
+      document.querySelector("meta[property='og:description']").setAttribute('content', `${document.title} | ${tag}に関する記事`);
       document.querySelector("meta[property='og:image']").setAttribute('content', 'https://images.microcms-assets.io/assets/869c668f8ba9442a8a5f97b75fb04858/1a821da37354495c9b16fdf6fb264caf/aikon_512.jpg');
       document.querySelector("meta[property='og:url']").setAttribute('content', `https://kotaro.blog/tagged/${tag}`);
 
       // // twiiter meta 
       document.querySelector("meta[name='twitter:site']").setAttribute('content', `https://kotaro.blog/tagged/${tag}`);
       document.querySelector("meta[name='twitter:card']").setAttribute('content', 'summary_large_image');
-      document.querySelector("meta[name='twitter:title']").setAttribute('content', `コタロウの開発日記 | ${tag}に関する記事`);
+      document.querySelector("meta[name='twitter:title']").setAttribute('content', `${document.title} | ${tag}に関する記事`);
       document.querySelector("meta[name='twitter:image']").setAttribute('content', 'https://images.microcms-assets.io/assets/869c668f8ba9442a8a5f97b75fb04858/1a821da37354495c9b16fdf6fb264caf/aikon_512.jpg');
-      document.querySelector("meta[name='twitter:description']").setAttribute('content', `コタロウの開発日記 | ${tag}に関する記事`);
+      document.querySelector("meta[name='twitter:description']").setAttribute('content', `${document.title} | ${tag}に関する記事`);
     }
   },
 

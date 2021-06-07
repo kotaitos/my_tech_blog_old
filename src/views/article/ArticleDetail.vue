@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <MyAvatar/>
     <v-card
     flat
     >
@@ -55,7 +54,6 @@
 <script>
 import axios from "axios";
 import sanitizeHtml from "sanitize-html";
-import MyAvatar from '@/components/MyAvatar'
 import HomeButton from '@/components/HomeButton'
 import Tag from '@/components/Tag'
 
@@ -63,7 +61,6 @@ export default {
   name: "ArticleDetail",
 
   components: {
-    MyAvatar,
     HomeButton,
     Tag,
   },
